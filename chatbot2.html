@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Freedom Fighters Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+    }
+
+    #chatbotBtn {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      background-color: #b629e9;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px 0 0 8px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(182, 41, 233, 0.3);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .content {
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content">
+    <h1>Welcome to Freedom Fighters Dashboard</h1>
+    <p>This is your interactive dashboard to explore India's history and heritage.</p>
+  </div>
+
+  <!-- Chatbot Button -->
+  <div id="chatbotBtn" onclick="openChatbot()">
+    <i class="fas fa-robot"></i> History Assistant
+  </div>
+
+  <script>
+    function openChatbot() {
+      window.open('https://fb35rdrwgaqvq4akakkugj.streamlit.app/', '_blank');
+    }
+  </script>
+
+</body>
+</html>

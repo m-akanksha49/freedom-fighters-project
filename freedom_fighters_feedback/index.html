@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback | Indian Freedom Fighters</title>
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- Typed.js for typing effect -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+<body>
+  <div class="feedback-container">
+    <div class="form-card">
+      <h1><span id="typed"></span></h1>
+      <p>Your thoughts help us improve the heritage project.</p>
+      <form id="feedbackForm">
+        <label for="name">👤 Name</label>
+        <input type="text" name="name" placeholder="Your full name" required />
+
+        <label for="email">📧 Email</label>
+        <input type="email" name="email" placeholder="Your email address" required />
+
+        <label for="message">📝 Message</label>
+        <textarea name="message" rows="5" placeholder="Write your feedback or suggestions..." required></textarea>
+
+        <button type="submit">Submit Feedback</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lottie animation (hidden until form submitted) -->
+
+  <!-- Hidden Thank You Modal -->
+<div id="thankyouModal" class="thankyou-modal">
+  <div class="thankyou-card">
+    <div id="lottieAnimation" style="width: 250px; height: 250px;"></div>
+    <h2 class="animated-heading">🎉 Thank you for your feedback!</h2>
+    <p>We truly value your suggestions to make this project even better.</p>
+    <button onclick="restartForm()">Submit Another</button>
+  </div>
+</div>
+
+  
+
+  <!-- Typed Text Animation -->
+  <script>
+    var typed = new Typed('#typed', {
+      strings: ["💬 Share Your Feedback", "🇮🇳 Help Us Grow", "🕊️ Your Voice Matters"],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true
+    });
+  </script>
+
+  <!-- Lottie Animation Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.6/lottie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<script>
+const form = document.getElementById('feedbackForm');
+const thankyouModal = document.getElementById('thankyouModal');
+const formCard = document.querySelector('.form-card');
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  fetch('submit_feedback.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+    form.reset();
+
+    // Hide form and show thank-you modal
+    formCard.style.display = 'none';
+    thankyouModal.style.display = 'flex';
+
+    // Clear previous animation and text
+    document.getElementById('lottieAnimation').innerHTML = '';
+    document.getElementById('typedThankyou').innerHTML = '';
+
+    // Load Lottie animation
+    lottie.loadAnimation({
+      container: document.getElementById('lottieAnimation'),
+      renderer: 'svg',
+      loop: false,
+      autoplay: true,
+      path: 'https://assets2.lottiefiles.com/packages/lf20_zrqthn6o.json'
+    });
+
+    // Start typed.js
+    new Typed('#typedThankyou', {
+      strings: ["🎉 Thank you for your feedback!"],
+      typeSpeed: 45,
+      backSpeed: 0,
+      loop: false,
+      showCursor: false
+    });
+  })
+  //.catch(error => {
+    //alert("❌ Submission failed. Try again.");
+    //console.error('Error:', error);
+  //});
+});
+
+function restartForm() {
+  thankyouModal.style.display = 'none';
+  formCard.style.display = 'block';
+  document.getElementById('lottieAnimation').innerHTML = '';
+}
+</script>
+
+
+</body>
+</html>

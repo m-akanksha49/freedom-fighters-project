@@ -1,0 +1,234 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #fffde7, #e0f2f1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+/* Container Styling */
+.feedback-container {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Form Card Styling */
+.form-card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.form-card:hover {
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+/* Heading */
+.form-card h1 {
+  font-size: 26px;
+  color: #2e7d32;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.form-card p {
+  color: #555;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Labels and Inputs */
+label {
+  display: block;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #2e7d32;
+}
+
+/* Button */
+button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1b5e20;
+}
+
+/* Thank You Modal Styling */
+/* Thank You Modal Styling */
+.thankyou-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Modal Card */
+.thankyou-card {
+  background: linear-gradient(to bottom right, #ffffff, #e8f5e9);
+  padding: 40px 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 420px;
+  animation: fadeIn 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Lottie Position */
+.thankyou-lottie {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto 15px auto;
+}
+
+/* Typed Header */
+.thankyou-card h2 {
+  color: #2e7d32;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  min-height: 40px;
+}
+
+/* Message Text */
+.thankyou-card p {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+/* Button */
+.thankyou-card button {
+  background: #2e7d32;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.thankyou-card button:hover {
+  background: #1b5e20;
+}
+
+
+.animated-heading {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #2e7d32;
+  font-size: 22px;
+  color: #2e7d32;
+  width: fit-content;
+  text-align: center;
+  animation: typing 2.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  margin-bottom: 10px;
+}
+
+
+.animated-heading {
+  animation: typing 2.5s steps(40, end);
+  border-right: none;
+}
+
+/* Typing animation */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Blinking cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #2e7d32; }
+}
+
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+
+/* Position the animation neatly at the top */
+.thankyou-lottie {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto 10px auto;
+}
+
+
+
+/* Thank You Animation */
+#thankyou-animation {
+  display: none;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .form-card {
+    padding: 20px;
+  }
+
+  .form-card h1 {
+    font-size: 22px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
